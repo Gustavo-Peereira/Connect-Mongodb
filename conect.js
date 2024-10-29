@@ -1,6 +1,6 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://gupesouza0:87654321@maze.8zndh.mongodb.net/?retryWrites=true&w=majority&appName=Maze";
+const uri = "mongodb+srv://<user>:<senha do user>@<Name cluster>";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -23,8 +23,8 @@ async function run() {
       await client.close();
     }  
   }
-  const db = client.db("blog");
-  const table = db.collection("posts");
+  const db = client.db("banco1"); // banco de dados
+  const table = db.collection("tabela1");// tabela 1
   
   //criar: tabela.insertOne(-1-) or inserteMany(-1- * n elementos a atribuir)
   //consultar: tabela.find(-1-)
@@ -33,6 +33,8 @@ async function run() {
   //-1-(Pesquisa): {atributo: conteudo}
   //-2-(pesquisa):Oque atualizar
 
+
+  //exemplo
   table
   .deleteOne({ title:"post1"} )
   .then(
